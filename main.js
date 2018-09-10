@@ -6,13 +6,10 @@ const {app, BrowserWindow} = require('electron')
   
   function createWindow () {
     // Créer le browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+    win = new BrowserWindow({width: 1200, height: 720})
   
     // et charge le index.html de l'application.
     win.loadFile('index.html')
-  
-    // Ouvre les DevTools.
-    win.webContents.openDevTools()
   
     // Émit lorsque la fenêtre est fermée.
     win.on('closed', () => {
