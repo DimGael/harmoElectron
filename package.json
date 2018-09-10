@@ -1,0 +1,23 @@
+{
+  "name": "harmoelectron",
+  "version": "1.0.0",
+  "description": "Application liste contact",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimGael/harmoElectron.git"
+  },
+  "author": "Alexandre & Gael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DimGael/harmoElectron/issues"
+  },
+  "homepage": "https://github.com/DimGael/harmoElectron#readme",
+  "devDependencies": {
+    "electron": "^2.0.9"
+  }
+}
