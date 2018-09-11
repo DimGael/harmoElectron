@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DimGael/harmoElectron#readme",
   "devDependencies": {
-    "electron": "^2.0.9"
+    "electron": "^2.0.9",
+    "jquery": "^3.3.1"
   }
 }
