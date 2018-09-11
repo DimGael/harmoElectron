@@ -1,15 +1,15 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron');
   
   // Gardez une reference globale de l'objet window, si vous ne le faites pas, la fenetre sera
   // fermee automatiquement quand l'objet JavaScript sera garbage collected.
-  let win
+  let win;
   
   function createWindow () {
     // Créer le browser window.
-    win = new BrowserWindow({width: 1200, height: 720})
+    win = new BrowserWindow({width: 1200, height: 720});
   
     // et charge le index.html de l'application.
-    win.loadFile('index.html')
+    win.loadFile('index.html');
   
     // Émit lorsque la fenêtre est fermée.
     win.on('closed', () => {
@@ -23,7 +23,7 @@ const {app, BrowserWindow} = require('electron')
   // Cette méthode sera appelée quant Electron aura fini
   // de s'initialiser et sera prêt à créer des fenêtres de navigation.
   // Certaines APIs peuvent être utilisées uniquement quand cet événement est émit.
-  app.on('ready', createWindow)
+  app.on('ready', createWindow);
   
   // Quitte l'application quand toutes les fenêtres sont fermées.
   app.on('window-all-closed', () => {
@@ -32,7 +32,7 @@ const {app, BrowserWindow} = require('electron')
     if (process.platform !== 'darwin') {
       app.quit()
     }
-  })
+  });
   
   app.on('activate', () => {
     // Sur macOS, il est commun de re-créer une fenêtre de l'application quand
@@ -40,6 +40,6 @@ const {app, BrowserWindow} = require('electron')
     if (win === null) {
       createWindow()
     }
-  })
+  });
   
   // Dans ce fichier, vous pouvez inclure le reste de votre code spécifique au processus principal. Vous pouvez également le mettre dans des fichiers séparés et les inclure ici.
