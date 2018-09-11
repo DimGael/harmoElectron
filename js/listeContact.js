@@ -1,3 +1,7 @@
+var nodeConsole = require('console');
+var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
+myConsole.log('It works !');
+
 /*
     Module javascript qui va servir à implémenter une liste de contacts
  */
@@ -20,13 +24,32 @@ function supprimerContact(index){
     listeContact.splice(index-1, 1);
 }
 
-function afficherContacte(){
+function afficherContacts(){
+    $('#listeContact').empty();
+    listeContact.forEach(function(value, index){
+        let i = index+1;
+        let li = $('<li/>')
+            .text(i + ' : ' + value[0] + ' ' + value[1]);
+        let link_show = $('<a/>')
+            .text('Afficher')
+            .attr('href', "#")
+            .addClass('afficher')
+            .attr('id', 'afficher__'+i);
+        let link_del = $('<a/>')
+            .text('Supprimer')
+            .attr('href', "#")
+            .addClass('supprimer')
+            .attr('id', ''+i);
 
+        link_show.appendTo(li);
+        link_del.appendTo(li);
+        li.appendTo('#listeContact');
+    })
 }
 
 
 $(document).ready(function() {
-    //JQuery code
+
 });
 
 

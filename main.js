@@ -10,6 +10,9 @@ const {app, BrowserWindow} = require('electron');
   
     // et charge le index.html de l'application.
     win.loadFile('index.html');
+
+    //Ouvre les outils de dev web
+    win.webContents.openDevTools()
   
     // Émit lorsque la fenêtre est fermée.
     win.on('closed', () => {
@@ -24,7 +27,9 @@ const {app, BrowserWindow} = require('electron');
   // de s'initialiser et sera prêt à créer des fenêtres de navigation.
   // Certaines APIs peuvent être utilisées uniquement quand cet événement est émit.
   app.on('ready', createWindow);
-  
+
+
+
   // Quitte l'application quand toutes les fenêtres sont fermées.
   app.on('window-all-closed', () => {
     // Sur macOS, il est commun pour une application et leur barre de menu
