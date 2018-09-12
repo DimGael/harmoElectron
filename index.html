@@ -2,16 +2,30 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
         <title>Contacts</title>
     </head>
     <body>
 
-        <script type="text/javascript">window.$ = window.jQuery = require('jquery');</script>
+        <script type="text/javascript">
+            window.$ = window.jQuery = require('jquery');
+            require( 'datatables.net-dt' )();
+            require( 'datatables.net-colreorder-dt' )();
+            require( 'datatables.net-select-dt' )();
+        </script>
 
-        <h1>Liste de contacts !</h1>
-
-        <p> Voici votre liste de contact:</p>
-        <ul id="listeContact"></ul>
+        <section>
+            <h1>Liste de contacts !</h1>
+            <table id="table_contacts">
+               <thead>
+                   <tr id="table_head">
+                        <th>Nom</th><th>Prénom</th><th>Telephone</th><th>Adresse</th><th>Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
 
 
         <input type="button" id="btn_add" value="Ajouter un contact" />
@@ -24,14 +38,6 @@
             </ul>
             <input type="submit" value="Ajouter"/>
         </form>
-
-
-        <section id="result">
-            <header>
-                <h1>RÉSULTATS : </h1>
-            </header>
-
-        </section>
 
 
 

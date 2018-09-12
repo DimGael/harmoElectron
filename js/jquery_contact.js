@@ -40,7 +40,6 @@ $(document).ready(function() {
         let contact = listeContact[index];
 
         let article = $('<article>');
-        article.addClass('media__contact');
 
         $('<header/>')
             .append('<h1>Contact ' + (index+1) + ' : ' + contact[0] + ' ' + contact[1]+'</h1>')

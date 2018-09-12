@@ -23,27 +23,50 @@ function supprimerContact(index){
     listeContact.splice(index-1, 1);
 }
 
-function afficherContacts(){
-    $('#listeContact').empty();
-    listeContact.forEach(function(value, index){
-        let i = index+1;
-        let li = $('<li/>')
-            .text(i + ' : ' + value[0] + ' ' + value[1]);
-        let link_show = $('<a/>')
-            .text('Afficher')
-            .attr('href', "#")
-            .addClass('afficher')
-            .attr('id', 'afficher_'+i);
-        let link_del = $('<a/>')
-            .text('Supprimer')
-            .attr('href', "#")
-            .addClass('supprimer')
-            .attr('id', ''+i);
+function afficherContacts() {
+    $('#table_contacts').children('tbody').empty();
+    listeContact.forEach(function (contact, index) {
+        let tr = $('<tr>');
 
-        link_show.appendTo(li);
-        link_del.appendTo(li);
-        li.appendTo('#listeContact');
+        //Prenom
+        $('<td>')
+            .append(contact[0])
+            .appendTo(tr);
+
+        //Nom
+        $('<td>')
+            .append(contact[1])
+            .appendTo(tr);
+
+        //Telephone
+        $('<td>')
+            .append(contact[2])
+            .appendTo(tr);
+
+        //Adresse
+        $('<td>')
+            .append(contact[3])
+            .appendTo(tr);
+
+        //Bouton supprimer
+        let linkSupr =$('<a>')
+            .addClass('supprimer')
+            .attr('id', ''+(index-1))
+            .attr('href', '#');
+
+        $('<img>')
+            .attr('src', 'img/trash.png')
+            .attr('width', '25')
+            .appendTo(linkSupr);
+
+        $('<td>')
+            .addClass('link_delete')
+            .append(linkSupr)
+            .appendTo(tr);
+
+        $('#table_contacts').children('tbody').append(tr);
     })
+    $('#table_contacts').DataTable();
 }
 
 
