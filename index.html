@@ -2,34 +2,31 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Hello World!</title>
+        <title>Contacts</title>
     </head>
     <body>
 
         <script type="text/javascript">window.$ = window.jQuery = require('jquery');</script>
 
-        <h1>Hello World!</h1>
+        <h1>Liste de contacts !</h1>
 
         <p> Voici votre liste de contact:</p>
         <ul id="listeContact"></ul>
 
-        <h2> Action à effectuer</h2>
 
-        <h3> Ajouter un contact</h3>
-        <h3> Supprimer un contact</h3>
-
-        <form>
-          <input type="button" class="btn" value="Ajouter un contact" />
-
-
-
-          <input type="button" class="btn" value="I'm a basic button" /></p>
-    </form>
-
+        <input type="button" id="btn_add" value="Ajouter un contact" />
+        <form id="form_add" style="display:none">
+            <ul>
+                <li>Prénom* : <input name="prenom" type="text" required/></li>
+                <li>Nom* : <input name="nom" type="text" required/></li>
+                <li>Adresse : <textarea name="adresse" placeholder="(Facultatif)"></textarea></li>
+                <li>Telephone : <input name="tel" type="tel" placeholder="(Facultatif)" /> </li>
+            </ul>
+            <input type="submit" value="Ajouter"/>
+        </form>
 
 
 
-        <!--  Inserer ici la liste de contact actuel -->
         <script type="text/javascript" src="js/listeContact.js"></script>
         <script type="text/javascript" src="js/jquery_contact.js"></script>
 
