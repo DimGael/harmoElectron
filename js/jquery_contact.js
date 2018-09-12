@@ -17,26 +17,15 @@ $(document).ready(function() {
         // ---- Affichage des détails du contact
         body.find('.afficher').on('click', null, function (event) {
             event.preventDefault();
+
+            //Vidage de la page résultats
+            $('#result').children('article').remove();
+
             //Récupération de l'index du contact
             let index = $(this).attr('id').split('_')[1];
             index = index - 1;
 
-            let contact = listeContact[index];
-
-            let article = $('<article>');
-            article.addClass('media__contact');
-
-            $('<header/>')
-                .append('<h1>Contact ' + (index+1) + ' : ' + contact[0] + ' ' + contact[1]+'</h1>')
-                .append($('<em/>').text('Numéro de téléphone : ' + contact[2]))
-                .appendTo(article);
-
-            $('<p/>')
-                .text('Adresse : ' + contact[3])
-                .appendTo(article);
-
-            $('#result').children('article').remove();
-            article.appendTo('#result');
+            afficherUnNouveauContact(index);
         });
     }
 
@@ -45,6 +34,25 @@ $(document).ready(function() {
         setListeners();
     }
     /**************************************************************************/
+
+    //Index : index du contact commençant par 0
+    function afficherUnNouveauContact(index){
+        let contact = listeContact[index];
+
+        let article = $('<article>');
+        article.addClass('media__contact');
+
+        $('<header/>')
+            .append('<h1>Contact ' + (index+1) + ' : ' + contact[0] + ' ' + contact[1]+'</h1>')
+            .append($('<em/>').text('Numéro de téléphone : ' + contact[2]))
+            .appendTo(article);
+
+        $('<p/>')
+            .text('Adresse : ' + contact[3])
+            .appendTo(article);
+        article.appendTo('#result');
+    }
+
 
     updateListeContact();
 
