@@ -34,7 +34,7 @@ function afficherContacts(){
             .text('Afficher')
             .attr('href', "#")
             .addClass('afficher')
-            .attr('id', 'afficher__'+i);
+            .attr('id', 'afficher_'+i);
         let link_del = $('<a/>')
             .text('Supprimer')
             .attr('href', "#")
