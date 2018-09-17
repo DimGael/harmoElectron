@@ -24,9 +24,10 @@ function supprimerContact(index){
 }
 
 function afficherContacts() {
-    $('#table_contacts').children('tbody').empty();
+    $('#table_contacts').find('tbody').empty();
     listeContact.forEach(function (contact, index) {
         let tr = $('<tr>');
+        tr.addClass('tr_'+index);
 
         //Prenom
         $('<td>')
@@ -64,15 +65,15 @@ function afficherContacts() {
             .append(linkSupr)
             .appendTo(tr);
 
-        $('#table_contacts').children('tbody').append(tr);
-    })
+        $('#table_contacts').find('tbody').append(tr);
+    });
+
     $('#table_contacts').DataTable({
         scrollY: 400,
         ordering: true,
         select: true,
         searching:true,
         paging:false
-        
     });
 }
 

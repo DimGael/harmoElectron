@@ -12,11 +12,21 @@
             require( 'datatables.net-dt' )();
             require( 'datatables.net-colreorder-dt' )();
             require( 'datatables.net-select-dt' )();
-	    require( 'datatables.net-buttons-dt' )();
         </script>
 
         <section>
-            <h1>Liste de contacts !</h1>
+            <header>
+                <h1>Liste de contacts !</h1>
+                <div>
+                    <h3>Actions :</h3>
+                    <ul>
+                        <li><input type="button" class="supprimer" value="Supprimer"></li>
+                        <li><input type="button" class="btn_add" value="Ajouter"></li>
+                        <li><input type="button" class="btn_sauvegarder" value="Sauvegarder"></li>
+                        <li><input type="button" class="btn_charger" value="Charger"></li>
+                    </ul>
+                </div>
+            </header>
             <table id="table_contacts">
                <thead>
                    <tr id="table_head">
@@ -29,7 +39,6 @@
         </section>
 
 
-        <input type="button" id="btn_add" value="Ajouter un contact" />
         <form id="form_add" style="display:none">
             <ul>
                 <li>Prénom* : <input name="prenom" type="text" required/></li>
