@@ -27,6 +27,10 @@ function supprimerContact(index){
     listeContact.splice(index-1, 1);
 }
 
+function getJsonContacts(){
+    return JSON.stringify(listeContact);
+}
+
 
 $(document).ready(function() {
 
