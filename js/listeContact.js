@@ -67,14 +67,6 @@ function afficherContacts() {
 
         $('#table_contacts').find('tbody').append(tr);
     });
-
-    $('#table_contacts').DataTable({
-        scrollY: 400,
-        ordering: true,
-        select: true,
-        searching:true,
-        paging:false
-    });
 }
 
 

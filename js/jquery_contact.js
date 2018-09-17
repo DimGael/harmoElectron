@@ -24,6 +24,14 @@ $(document).ready(function() {
 
 
     updateListeContact();
+    //Création du Datatable
+    $('#table_contacts').DataTable({
+        scrollY: 200,
+        ordering: true,
+        select: true,
+        searching:true,
+        paging:false
+    });
 
     $('.btn_add').on('click', null, function(event){
         event.preventDefault();
