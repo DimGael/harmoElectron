@@ -12,27 +12,21 @@ $(document).ready(function() {
         paging:false,
     });
 
-    var table = $('#table_contacts').DataTable();
-    /* ************** FONCTION POUR RESET LES CONTACTS **************************/
-    function setListeners() {
+    var table = $('#table_contacts').DataTable();$
+
         let body = $('body');
         //Listener sur les boutons supprimer
         body.find('.supprimer').on('click', null, function (event) {
             event.preventDefault();
-            let contact_suppr_index = $(this).attr('id');
-            supprimerContact(contact_suppr_index);
-            table.selected().remove();
-            updateListeContact();
+            table.row('.selected').each(function(index, value){
+                supprimerContact($(this)[0]);
+                table.row($(this)).remove();
+            });
+            table.draw();
         });
-    }
 
-    function updateListeContact() {
-        table.draw();
-        setListeners();
-    }
-    /**************************************************************************/
 
-    updateListeContact();
+    table.draw();
 
     /* ******************* AJOUT D'UN NOUVEAU CONTACT ***********************/
     $('.btn_add').on('click', null, function(event){
@@ -51,7 +45,7 @@ $(document).ready(function() {
 
         ajouterContact(prenom,  nom, tel, adresse);
 
-        updateListeContact();
+        table.draw();
 
         // --- reset du formulaire
         $(':input','#form_add')
