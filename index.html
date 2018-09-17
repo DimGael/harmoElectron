@@ -3,15 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/datatables.min.css">
+        <link rel="stylesheet" href="css/style.css">
         <title>Contacts</title>
     </head>
     <body>
 
         <script type="text/javascript">
             window.$ = window.jQuery = require('jquery');
-            require( 'datatables.net-dt' )();
-            require( 'datatables.net-colreorder-dt' )();
-            require( 'datatables.net-select-dt' )();
+            require( 'datatables.net-jqui' )();
+            require( 'datatables.net-buttons-jqui' )();
+            require( 'datatables.net-select-jqui' )();
         </script>
 
         <section>
@@ -28,10 +29,10 @@
                 </div>
             </header>
             <table id="table_contacts">
-               <thead>
-                   <tr id="table_head">
-                        <th>Nom</th><th>Prénom</th><th>Telephone</th><th>Adresse</th><th>Supprimer</th>
-                    </tr>
+                <thead>
+                <tr>
+                    <th>Nom</th><th>Prénom</th><th>Téléphone</th><th>Adresse</th>
+                </tr>
                 </thead>
                 <tbody>
                 </tbody>

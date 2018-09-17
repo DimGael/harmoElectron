@@ -1,8 +1,18 @@
 var nodeConsole = require('console');
 var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
 
-// ------------------------- AFFICHAGE DES CONTACTS ---------------------------------
+
 $(document).ready(function() {
+
+    $('#table_contacts').DataTable({
+        scrollY: 200,
+        ordering: true,
+        select: true,
+        searching:true,
+        paging:false,
+    });
+
+    var table = $('#table_contacts').DataTable();
     /* ************** FONCTION POUR RESET LES CONTACTS **************************/
     function setListeners() {
         let body = $('body');
@@ -11,28 +21,20 @@ $(document).ready(function() {
             event.preventDefault();
             let contact_suppr_index = $(this).attr('id');
             supprimerContact(contact_suppr_index);
-            $('#table_contacts').DataTable().selected().remove();
+            table.selected().remove();
             updateListeContact();
         });
     }
 
     function updateListeContact() {
-        afficherContacts();
+        table.draw();
         setListeners();
     }
     /**************************************************************************/
 
-
     updateListeContact();
-    //Création du Datatable
-    $('#table_contacts').DataTable({
-        scrollY: 200,
-        ordering: true,
-        select: true,
-        searching:true,
-        paging:false
-    });
 
+    /* ******************* AJOUT D'UN NOUVEAU CONTACT ***********************/
     $('.btn_add').on('click', null, function(event){
         event.preventDefault();
         $('#form_add').toggle();
@@ -56,4 +58,5 @@ $(document).ready(function() {
             .not(':submit')
             .val('');
     })
+    /************************************************************************/
 });
