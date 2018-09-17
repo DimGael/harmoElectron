@@ -17,10 +17,11 @@ var listeContact = []; //new array
 
 function ajouterContact(prenom, nom, tel, adresse){
     listeContact.push([prenom, nom, tel, adresse]);
-    var table = $('#table_contacts').DataTable();
+    let table = $('#table_contacts').DataTable();
     table.row.add([
         prenom, nom, tel, adresse
-    ])
+    ]);
+    table.draw();
 }
 
 function supprimerContact(index){
@@ -28,9 +29,31 @@ function supprimerContact(index){
 }
 
 function getJsonContacts(){
-    return JSON.stringify(listeContact);
+    return JSON.parse(listeContact);
 }
 
+function setContactsJson(json_object){
+
+    /*
+    let arrayTest = [["test0","test0","",""],
+        ["test1","test1","",""],
+        ["test2", "test2", "", "adresse de test2"],
+        ["test3", "test3", "0555333333", ""],
+        ["Michel","Dubois", "0555571728", "26 rue des trottoirs"]];
+
+    let json_object__test = JSON.stringify(arrayTest);
+    */
+
+
+    let table = $('#table_contacts').DataTable();
+    table.clear();
+
+    listeContact = [];
+
+    JSON.parse(json_object).forEach(function(contact){
+        ajouterContact(contact[0], contact[1], contact[2], contact[3]);
+    });
+}
 
 $(document).ready(function() {
 
