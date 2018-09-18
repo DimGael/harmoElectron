@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/datatables.min.css">
+        <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
         <title>Contacts</title>
     </head>
@@ -15,41 +16,43 @@
             require( 'datatables.net-select-jqui' )();
         </script>
 
-        <section>
-            <header>
-                <h1>Liste de contacts !</h1>
-                <div>
-                    <h3>Actions :</h3>
-                    <ul>
-                        <li><input type="button" class="supprimer" value="Supprimer"></li>
-                        <li><input type="button" class="btn_add" value="Ajouter"></li>
-                        <li><input type="button" class="btn_sauvegarder" value="Sauvegarder"></li>
-                        <li><input type="button" class="btn_charger" value="Charger"></li>
-                    </ul>
-                </div>
+        <main>
+            <header class="main__header">
+                <h1 class="main__title">Liste de contacts</h1>
             </header>
-            <table id="table_contacts">
-                <thead>
-                <tr>
-                    <th>Nom</th><th>Prénom</th><th>Téléphone</th><th>Adresse</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </section>
+            <section>
+                <header class="firstmedia__header">
+                    <nav class="firstmedia__nav">
+                        <ul class="listbtn">
+                            <li class="listbtn__element"><button class="supprimer listbtn__btn">Supprimer</button></li>
+                            <li class="listbtn__element"><button class="btn_add listbtn__btn">Ajouter</button></li>
+                            <li class="listbtn__element"><button class="btn_sauvegarder listbtn__btn">Sauvegarde</button></li>
+                            <li class="listbtn__element"><button class="btn_charger listbtn__btn">Charger</button></li>
+                        </ul>
+                    </nav>
+                </header>
+                <table id="table_contacts">
+                    <thead>
+                    <tr>
+                        <th>Nom</th><th>Prénom</th><th>Téléphone</th><th>Adresse</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
 
 
-        <form id="form_add" style="display:none">
-            <ul>
-                <li>Prénom* : <input name="prenom" type="text" required/></li>
-                <li>Nom* : <input name="nom" type="text" required/></li>
-                <li>Adresse : <textarea name="adresse" placeholder="(Facultatif)"></textarea></li>
-                <li>Telephone : <input name="tel" type="tel" placeholder="(Facultatif)" /> </li>
-            </ul>
-            <input type="submit" value="Ajouter"/>
-        </form>
-
+            <form id="form_add" style="display:none">
+                <ul>
+                    <li>Prénom* : <input name="prenom" type="text" required/></li>
+                    <li>Nom* : <input name="nom" type="text" required/></li>
+                    <li>Adresse : <textarea name="adresse" placeholder="(Facultatif)"></textarea></li>
+                    <li>Telephone : <input name="tel" type="tel" placeholder="(Facultatif)" /> </li>
+                </ul>
+                <input type="submit" value="Ajouter"/>
+            </form>
+        </main>
 
 
         <script type="text/javascript" src="js/listeContact.js"></script>

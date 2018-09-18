@@ -1,10 +1,10 @@
 var nodeConsole = require('console');
-var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
+//var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
 
 
 $(document).ready(function() {
 
-    $('#table_contacts').DataTable({
+    var table = $('#table_contacts').DataTable({
         scrollY: 200,
         ordering: true,
         select: true,
@@ -12,13 +12,14 @@ $(document).ready(function() {
         paging:false,
     });
 
-    var table = $('#table_contacts').DataTable();$
+    $('.dataTables_filter').addClass('pull-left');
+
 
         let body = $('body');
         //Listener sur les boutons supprimer
         body.find('.supprimer').on('click', null, function (event) {
             event.preventDefault();
-            table.row('.selected').each(function(index, value){
+            table.rows('.selected').each(function(index, value){
                 supprimerContact($(this)[0]);
                 table.row($(this)).remove();
             });
@@ -31,7 +32,9 @@ $(document).ready(function() {
     /* ******************* AJOUT D'UN NOUVEAU CONTACT ***********************/
     $('.btn_add').on('click', null, function(event){
         event.preventDefault();
-        $('#form_add').toggle();
+        let form = $('#form_add');
+        form.toggle();
+        form.find("input[name='prenom']").focus();
     });
 
     $('#form_add').on('submit', null, function(event){
