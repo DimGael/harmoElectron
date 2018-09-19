@@ -19,10 +19,7 @@ $(document).ready(function() {
         //Listener sur les boutons supprimer
         body.find('.supprimer').on('click', null, function (event) {
             event.preventDefault();
-            table.rows('.selected').each(function(index, value){
-                supprimerContact($(this)[0]);
-                table.row($(this)).remove();
-            });
+            table.rows('.selected').remove();
             table.draw();
         });
 
@@ -46,7 +43,9 @@ $(document).ready(function() {
         let adresse = $( "textarea[name='adresse']" ).val();
         let tel = $( "input[name='tel']" ).val();
 
-        ajouterContact(prenom,  nom, tel, adresse);
+        table.row.add([
+            prenom, nom, tel, adresse
+        ]);
 
         table.draw();
 
