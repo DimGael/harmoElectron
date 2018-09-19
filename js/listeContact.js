@@ -16,7 +16,7 @@ var listeContact = []; //new array
 
 // Un contact sera de la forme : ["Prénom", "Nom", "Telephone", "Adresse"]
 //Contacts fictifs
-//listeContact.push(["Gael", "DIM", "0687988327", "15 rue de coqui"]);
+//isteContact.push(["Gael", "DIM", "0687988327", "15 rue de coqui"]);
 //listeContact.push(["Jean", "Moulin", "", ""]);
 
 
@@ -45,6 +45,22 @@ function test(){
         },
 
     );
+}
+function save(){
+    dialog.showSaveDialog(
+      {
+        title:"foo",
+        defaultPath: '~/foo.json',
+        filters: { name:'save', extensions: ['json'], },
+      },
+      function(fileName, bookmarks){
+        fs.writeFile(fileName, getJsonContacts(), function(data, err){
+            if(err){
+              console.log(err);
+            }
+          })
+        },
+      )
 }
 
 function setContactsJson(json_object){
@@ -76,5 +92,3 @@ function setContactsJson(json_object){
 $(document).ready(function() {
 
 });
-
-
