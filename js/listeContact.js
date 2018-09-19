@@ -7,6 +7,8 @@ myConsole.log('It works !');
     Module javascript qui va servir à implémenter une liste de contacts
  */
 
+const dialog = require('electron').remote.dialog;
+
 //Va contenir tous les contacts
 var listeContact = []; //new array
 
@@ -20,6 +22,21 @@ var listeContact = []; //new array
 function getJsonContacts(){
     let table = $('#table_contacts').DataTable();
     return JSON.stringify(table.rows().data().toArray());
+}
+
+function test(){
+    dialog.showOpenDialog(
+        {
+            title:"Ouvrir un fichier :o",
+            filters: { extensions: ['txt'] },
+            properties: ["openfile"],
+        },
+        function(filePaths, bookmarks){
+            console.log(filePaths);
+            console.log(bookmarks);
+        },
+
+    );
 }
 
 function setContactsJson(json_object){
