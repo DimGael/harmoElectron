@@ -26,11 +26,11 @@ function getJsonContacts(){
     return JSON.stringify(table.rows().data().toArray());
 }
 
-function test(){
+function load(){
     dialog.showOpenDialog(
         {
             title:"Ouvrir un fichier :o",
-            filters: { extensions: ['txt'] },
+            filters: [{ name:'JSON File', extensions: ['json'] }],
             properties: ["openfile"],
         },
         function(filePaths, bookmarks){
@@ -49,9 +49,9 @@ function test(){
 function save(){
     dialog.showSaveDialog(
       {
-        title:"foo",
-        defaultPath: '~/foo.json',
-        filters: { name:'save', extensions: ['json'], },
+        title:"save",
+        defaultPath: '~/save.json',
+        filters: [{ name:'JSON File', extensions: ['json'], }],
       },
       function(fileName, bookmarks){
         fs.writeFile(fileName, getJsonContacts(), function(data, err){
