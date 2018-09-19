@@ -26,30 +26,40 @@ function getJsonContacts(){
     return JSON.stringify(table.rows().data().toArray());
 }
 
-function load(){
+function loadContacts(){
     dialog.showOpenDialog(
         {
-            title:"Ouvrir un fichier :o",
+            title:"Charger vos contacts",
             filters: [{ name:'JSON File', extensions: ['json'] }],
             properties: ["openfile"],
         },
         function(filePaths, bookmarks){
-            console.log(filePaths);
-            console.log(bookmarks);
             fs.readFile(filePaths[0], function (err, data) {
                 if (err) {
                     return console.error(err);
                 }
-                console.log("Asynchronous read: " + data.toString());
+                let contacts = JSON.parse(data.toString());
+                let table = $('#table_contacts').DataTable();
+
+                contacts.forEach(function(contact, index){
+                    if(contact.length === 4) {
+                        table.row.add([contact[0], contact[1], contact[2], contact[3]]);
+                    }
+                    else{
+                        console.log("Erreur d'insertion d'un contact, mauvais format. Index contact : " + index);
+                    }
+                });
+
+                table.draw();
             });
         },
 
     );
 }
-function save(){
+function saveContacts(){
     dialog.showSaveDialog(
       {
-        title:"save",
+        title:"Sauvegarder vos contacts",
         defaultPath: '~/save.json',
         filters: [{ name:'JSON File', extensions: ['json'], }],
       },

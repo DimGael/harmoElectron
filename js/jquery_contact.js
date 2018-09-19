@@ -55,4 +55,19 @@ $(document).ready(function() {
             .val('');
     })
     /************************************************************************/
+
+    $('.btn_sauvegarder').on("click", null, function(event){
+        event.preventDefault();
+        saveContacts();
+    });
+
+    $('.btn_charger').on("click", null, function(event){
+        event.preventDefault();
+        loadContacts();
+    });
+
+    $('.btn_vider').on("click", null, function(event){
+        event.preventDefault();
+        table.clear().draw();
+    });
 });
