@@ -25,6 +25,7 @@
   "dependencies": {
     "datatables.net-buttons-jqui": "^1.5.3",
     "datatables.net-jqui": "^1.10.19",
-    "datatables.net-select-jqui": "^1.2.7"
+    "datatables.net-select-jqui": "^1.2.7",
+    "file-system": "^2.2.2"
   }
 }

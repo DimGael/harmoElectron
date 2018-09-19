@@ -8,6 +8,8 @@ myConsole.log('It works !');
  */
 
 const dialog = require('electron').remote.dialog;
+const fs = require("file-system");
+
 
 //Va contenir tous les contacts
 var listeContact = []; //new array
@@ -34,6 +36,12 @@ function test(){
         function(filePaths, bookmarks){
             console.log(filePaths);
             console.log(bookmarks);
+            fs.readFile(filePaths[0], function (err, data) {
+                if (err) {
+                    return console.error(err);
+                }
+                console.log("Asynchronous read: " + data.toString());
+            });
         },
 
     );
