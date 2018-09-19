@@ -72,33 +72,3 @@ function saveContacts(){
         },
       )
 }
-
-function setContactsJson(json_object){
-
-    /*
-    let arrayTest = [["test0","test0","",""],
-        ["test1","test1","",""],
-        ["test2", "test2", "", "adresse de test2"],
-        ["test3", "test3", "0555333333", ""],
-        ["Michel","Dubois", "0555571728", "26 rue des trottoirs"]];
-
-    let json_object__test = JSON.stringify(arrayTest);
-    */
-
-
-    let table = $('#table_contacts').DataTable();
-    table.clear();
-
-
-    JSON.parse(json_object).forEach(function(contact){
-        table.row.add([
-            contact[0], contact[1], contact[2], contact[3]
-        ]);
-
-        table.draw();
-    });
-}
-
-$(document).ready(function() {
-
-});
